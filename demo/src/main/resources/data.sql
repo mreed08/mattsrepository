@@ -1,1 +1,1 @@
-insert into ingredient (id,name,inventoryCount,cost, inventoryMax) values (default, 'Coffee',10,75,10);
+insert into ingredient (id,name,inventoryCount,cost, inventoryMax) values (default, 'Coffee',10,.75,10);

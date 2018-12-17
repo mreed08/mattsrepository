@@ -1,4 +1,3 @@
-
 CREATE TABLE ingredient (
     id   INTEGER      NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,

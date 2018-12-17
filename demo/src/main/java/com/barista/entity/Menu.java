@@ -1,21 +1,11 @@
 package com.barista.entity;
 
 import java.text.DecimalFormat;
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-
-import org.hibernate.annotations.NamedQueries;
-import org.hibernate.annotations.NamedQuery;
 import org.springframework.lang.NonNull;
-
 import lombok.Getter;
 import lombok.Setter;
 @Entity
@@ -53,7 +43,7 @@ public class Menu {
 	 @Override
 	   public String toString() {
 		 DecimalFormat dec = new DecimalFormat("#.00");
-	    // return menuName +"," $+ (Double.valueOf(dec.format(ingredient.getCost() * ingredientAmount)));
+	    
 		 return menuName +", $"+ dec.format((Double.valueOf(ingredient.getCost() * ingredientAmount)));
 	   }
 }

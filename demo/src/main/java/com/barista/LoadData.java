@@ -2,6 +2,7 @@ package com.barista;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,13 @@ import com.barista.repository.MenuRepository;
 @Service
 public class LoadData  {
 	private Logger LOG = LoggerFactory.getLogger("Application");
+	
+	@Autowired
+	private MenuRepository menuRepository;
+	@Autowired
+	private IngredientRepository ingredientRepository;
 
-	public boolean loadData(IngredientRepository ingredientRepository, MenuRepository menuRepository) {
+	public boolean loadData() {
 		
 		
 	try {
@@ -38,13 +44,13 @@ public class LoadData  {
 		    menuRepository.save(new Menu(null, "DECAF COFFEE", ingredientRepository.findByName("Cream"),1));
 		    menuRepository.save(new Menu(null, "CAFFE LATTE", ingredientRepository.findByName("Espresso"),2));
 		    menuRepository.save(new Menu(null, "CAFFE LATTE", ingredientRepository.findByName("Steamed Milk"),1));
-		    menuRepository.save(new Menu(null, "Caffe Mocha", ingredientRepository.findByName("Espresso"),1));
-		    menuRepository.save(new Menu(null, "Caffe Mocha", ingredientRepository.findByName("Cocoa"),1));
-		    menuRepository.save(new Menu(null, "Caffe Mocha", ingredientRepository.findByName("Steamed Milk"),1));
-		    menuRepository.save(new Menu(null, "Caffe Mocha", ingredientRepository.findByName("Whipped Cream"),1));
-		    menuRepository.save(new Menu(null, "Cappuccino", ingredientRepository.findByName("Espresso"),2));
-		    menuRepository.save(new Menu(null, "Cappuccino", ingredientRepository.findByName("Steamed Milk"),1));
-		    menuRepository.save(new Menu(null, "Cappuccino", ingredientRepository.findByName("Foamed Milk"),1));
+		    menuRepository.save(new Menu(null, "CAFFE MOCHA", ingredientRepository.findByName("Espresso"),1));
+		    menuRepository.save(new Menu(null, "CAFFE MOCHA", ingredientRepository.findByName("Cocoa"),1));
+		    menuRepository.save(new Menu(null, "CAFFE MOCHA", ingredientRepository.findByName("Steamed Milk"),1));
+		    menuRepository.save(new Menu(null, "CAFFE MOCHA", ingredientRepository.findByName("Whipped Cream"),1));
+		    menuRepository.save(new Menu(null, "CAPPUCCINO", ingredientRepository.findByName("Espresso"),2));
+		    menuRepository.save(new Menu(null, "CAPPUCCINO", ingredientRepository.findByName("Steamed Milk"),1));
+		    menuRepository.save(new Menu(null, "CAPPUCCINO", ingredientRepository.findByName("Foamed Milk"),1));
 		      
     } catch (DataAccessException ex) {
     	LOG.error("Loading Data on Startup Failed");
